@@ -9,7 +9,7 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
-    { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
+    { path: 'adminlogin', loadChildren: './adminlogin/admin-login.module#AdminLoginModule' },
     { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
     { path: '**', redirectTo: 'not-found' }
 ];
