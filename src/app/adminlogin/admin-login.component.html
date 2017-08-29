@@ -13,9 +13,18 @@
                         <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
                     </div>
                 </div>
+                 <!--<div class="form-group radio" *ngFor= "let role of roleList">  
+                    <input #widget
+                        class='with-gap'
+                        name='statusGroup'
+                        type='radio'
+                        [id]='role.role_id'
+                        [value]='role.role_id'
+                        [(ngModel)]='role_id'
+                    />{{role.role_name}}
+                </div>-->
                 <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
                 &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/adminlogin']">Login As Admin</a>
             </form>
         </div>
     </div>

@@ -8,13 +8,13 @@ import { SharedService } from '../shared/services/shared.service'
 
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
+    selector: 'admin-login',
+    templateUrl: './admin-login.component.html',
+    styleUrls: ['./admin-login.component.scss'],
     animations: [routerTransition()]
 })
-export class LoginComponent implements OnInit {
-    public username: string;
+export class AdminLoginComponent implements OnInit {
+   public username: string;
     public password: string;
     public role_id:any;
     public ErrorPassword:any = true;
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         res => {
             if(res.response.statusResponse == 0) {
                 this.sharedService.setLoginObj(res.data.user);
-                localStorage.setItem('isLoggedin', 'true');
+                
                 this.router.navigate(['/dashboard'])
             }
             else if(res.response.statusResponse == 1) {

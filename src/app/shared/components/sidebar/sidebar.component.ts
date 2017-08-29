@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
     isActive = false;
     showMenu = '';
+    showMenuCompany = '';
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -16,6 +17,14 @@ export class SidebarComponent {
             this.showMenu = '0';
         } else {
             this.showMenu = element;
+        }
+    }
+
+    addExpandClassCompany(element: any) {
+        if (element === this.showMenuCompany) {
+            this.showMenuCompany = '0';
+        } else {
+            this.showMenuCompany = element;
         }
     }
 }
