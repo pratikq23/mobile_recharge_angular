@@ -9,6 +9,7 @@ export class SidebarComponent {
     isActive = false;
     showMenu = '';
     showMenuCompany = '';
+    showMenuModel = '';
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -25,6 +26,14 @@ export class SidebarComponent {
             this.showMenuCompany = '0';
         } else {
             this.showMenuCompany = element;
+        }
+    }
+
+    addExpandClassModel(element: any) {
+        if (element === this.showMenuModel) {
+            this.showMenuModel = '0';
+        } else {
+            this.showMenuModel = element;
         }
     }
 }

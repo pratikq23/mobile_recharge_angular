@@ -11,7 +11,7 @@ const routes: Routes = [
             { path: 'addcompany', loadChildren: './addcompany/addcompany.module#AddCompanyModule' },
             { path: 'manageuser', loadChildren: './manageuser/manageuser.module#manageUserModule'},
             { path: 'managecompany', loadChildren: './managecompany/managecompany.module#ManageCompanyModule'},
-            
+            { path: 'addmodel', loadChildren: './addmodel/addmodel.module#AddCompanyModule'}
         ]
     }
 ];

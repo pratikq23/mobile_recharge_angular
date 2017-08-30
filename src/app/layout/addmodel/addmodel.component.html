@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <form class="form-signin" (ngSubmit)="onSubmit()" >
+  <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+    <h2 class="clean-font">Add Model</h2>
+
+    <input type="text" class="form-control" name="modelNo" placeholder="Model Number" [(ngModel)]="modelNo" name="modelNo" required autofocus=""/>
+    <br>
+    Select Company:
+    <select [(ngModel)]="companyName" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let company of companyList" value= {{company.name}} >
+        {{company.name}}
+      </option>
+    </select>
+    <br>
+    <!--  <input type="text" class="form-control" name="companyName" placeholder="Company Name"  name="companyName" required autofocus="" (ngModelChange)="valuechange($event)"/> -->
+    <br>
+    <input type="text" class="form-control" name="modelRAM" placeholder="Model RAM" [(ngModel)]="modelRAM" name="modelRAM" required autofocus=""/>
+    <br>
+     <input type="text" class="form-control" name="modelROM" placeholder="Model ROM" [(ngModel)]="modelROM" name="modelROM" required autofocus=""/>
+    <br>
+    <button class="btn btn-primary btn-block" type="submit">Save</button>
+  </form>
+</div>
