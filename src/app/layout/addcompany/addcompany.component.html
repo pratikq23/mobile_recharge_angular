@@ -3,7 +3,19 @@
   <img class="user-avatar" src="assets/images/logo.png" width="150px" />
     <h2 class="clean-font">Add Company</h2>
 
-    <input type="text" class="form-control" name="username" placeholder="companyname" [(ngModel)]="companyname" name="companyname" required autofocus="" (ngModelChange)="valuechange($event)"/>
+    <input type="text" class="form-control" name="compyname" placeholder="companyname" [(ngModel)]="companyname" name="companyname" required autofocus=""/>
+    <br>
+    
+    Company Type:
+    <select [(ngModel)]="companytype" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let type of companyTypeList" value= {{type.name}} >
+        {{type.name}}
+      </option>
+    </select>
+    <br>
+     <!-- <input type="text" class="form-control" name="companytype" placeholder="companytype" [(ngModel)]="companytype" name="companytype" required autofocus="" (ngModelChange)="valuechange($event)"/> -->
+    <br>
+    <br>
     <br>
     <button class="btn btn-primary btn-block" type="submit">Add</button>
   </form>

@@ -8,20 +8,19 @@ import { Router }  from '@angular/router';
 })
 export class AddCompanyComponent  {
     public companyname: string;
-  	public logInObj:any;
+    public companytype: string;
+    public companyTypeList = [{name:'Recharge'},{name:'Mobile'},{name:'Tablets'}]
+    constructor(public router:Router){
+    	
+    }
 
-  constructor(
-  	
-  	public router:Router){
-  	
-  }
+    //on form submit
+    onSubmit() {
 
-  onSubmit() {
-
-  }
+    }
 
 
-  valuechange(event:any){
-   
-  }
+    valuechange(event:any){
+     
+    }
 }
