@@ -4,3 +4,41 @@
 @import "utils";
 @import "rtl";
 @import "responsive";
+
+.column-selector-box {
+	background:aliceblue !important;
+}	
+
+.refresh-button :before{
+	content: "\f021";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    
+
+}
+
+.column-selector-button :before {
+	content: "\f00b";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    
+}
+
+.column-sort-icon :before{
+	content: "\f0dc";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+}
+
+.glyphicon-triangle-bottom {
+	display:none;
+}
+
+.glyphicon-triangle-top {
+	display:none;
+}
+
+.btn-block {
+    display: block;
+    width: 30%;
+
+}
+
+

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { SharedService } from './shared/services/shared.service';
 
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development

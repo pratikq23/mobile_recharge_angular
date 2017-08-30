@@ -8,7 +8,9 @@ const routes: Routes = [
         children: [
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
-            { path: 'addcompany', loadChildren: './signup/signup.module#SignupModule' }
+            { path: 'addcompany', loadChildren: './addcompany/addcompany.module#AddCompanyModule' },
+            { path: 'manageuser', loadChildren: './manageuser/manageuser.module#manageUserModule'},
+            { path: 'managecompany', loadChildren: './managecompany/managecompany.module#ManageCompanyModule'},
             
         ]
     }
