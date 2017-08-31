@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { ManageModelComponent } from './managemodel.component';
+import { AddColorComponent } from './addcolor.component';
 
 const routes: Routes = [
-    { path: '', component: ManageModelComponent }
+    { path: '', component: AddColorComponent }
 ];
 
 @NgModule({
     imports: [FormsModule,RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class ManageModelRoutingModule { }
+export class AddColorRoutingModule { }

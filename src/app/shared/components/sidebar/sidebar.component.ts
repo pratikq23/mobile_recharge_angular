@@ -10,6 +10,8 @@ export class SidebarComponent {
     showMenu = '';
     showMenuCompany = '';
     showMenuModel = '';
+    showMenuColor = '';
+    showMenuBill = '';
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -34,6 +36,23 @@ export class SidebarComponent {
             this.showMenuModel = '0';
         } else {
             this.showMenuModel = element;
+        }
+    }
+
+     addExpandClassColor(element: any) {
+        if (element === this.showMenuColor) {
+            this.showMenuColor = '0';
+        } else {
+            this.showMenuColor = element;
+        }
+    }
+
+
+    addExpandClassBill(element: any) {
+        if (element === this.showMenuBill) {
+            this.showMenuBill = '0';
+        } else {
+            this.showMenuBill = element;
         }
     }
 }

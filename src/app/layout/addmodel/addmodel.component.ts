@@ -10,7 +10,7 @@ export class AddModelComponent  {
     public modelNo: string;
     public modelRAM:any;
     public modelROM:any;
-    public companyName: string;
+    public companyName: string = 'samsung';
     public companyList = [{name:'Nokia'},{name:'jio'},{name:'samsung'}]
 
     constructor(

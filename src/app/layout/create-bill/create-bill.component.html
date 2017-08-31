@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <form class="form-signin" (ngSubmit)="onSubmit()" >
+  <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+    <h2 class="clean-font">Add Color</h2>
+
+    <input type="text" class="form-control" name="color" placeholder="color" [(ngModel)]="color" name="color" required autofocus=""/>
+    <br>
+    
+   
+    <button class="btn btn-primary btn-block" type="submit">Add</button>
+  </form>
+</div>
