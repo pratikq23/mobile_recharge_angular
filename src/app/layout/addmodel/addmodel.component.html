@@ -6,7 +6,7 @@
     <input type="text" class="form-control" name="modelNo" placeholder="Model Number" [(ngModel)]="modelNo" name="modelNo" required autofocus=""/>
     <br>
     Select Company:
-    <select [(ngModel)]="companyName" [ngModelOptions]="{standalone: true}">
+    <select [(ngModel)]="companyName" name="company " placeholder="company" [ngModelOptions]="{standalone: true}">
       <option *ngFor="let company of companyList" value= {{company.name}} >
         {{company.name}}
       </option>

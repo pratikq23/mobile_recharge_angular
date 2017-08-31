@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataTableModule } from 'angular-4-data-table';
 
-import { ManageModelRoutingModule } from './managemodel-routing.module';
-import { ManageModelComponent } from './managemodel.component';
+import { MangeColorRoutingModule } from './mangecolor-routing.module';
+import { MangeColorComponent } from './mangecolor.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ManageModelRoutingModule,
+    MangeColorRoutingModule,
     DataTableModule
   ],
-  declarations: [ManageModelComponent]
+  declarations: [MangeColorComponent]
 })
-export class ManageModelModule { }
+export class MangeColorModule { }

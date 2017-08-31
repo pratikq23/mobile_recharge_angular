@@ -47,7 +47,41 @@
                         <a routerLink="/addmodel"  class="fa fa-plus"><span>&nbsp; {{ 'Add' | translate }}</span></a>
                     </li>
                     <li>
-                        <a  routerLink="/managecompany" class="fa fa-list"><span>&nbsp;{{ 'Manage' | translate }}</span></a>
+                        <a  routerLink="/managemodel" class="fa fa-list"><span>&nbsp;{{ 'Manage' | translate }}</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        
+         <!--color-->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClassColor('pages')">
+                <span><i class="fa fa-paint-brush"></i>&nbsp; {{ 'Color' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenuColor === 'pages'">
+                <ul class="submenu">
+                   <li>
+                        <a routerLink="/addcolor"  class="fa fa-plus"><span>&nbsp; {{ 'Add' | translate }}</span></a>
+                    </li>
+                    <li>
+                        <a  routerLink="/mangecolor" class="fa fa-list"><span>&nbsp;{{ 'Manage' | translate }}</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+         <!--createbill-->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClassBill('pages')">
+                <span><i class="fa fa-id-card"></i>&nbsp; {{ 'Bill' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenuBill === 'pages'">
+                <ul class="submenu">
+                   <li>
+                        <a routerLink="/create-bill"  class="fa fa-plus"><span>&nbsp; {{ 'Add' | translate }}</span></a>
+                    </li>
+                    <li>
+                        <a  routerLink="/mangecolor" class="fa fa-list"><span>&nbsp;{{ 'Manage' | translate }}</span></a>
                     </li>
                 </ul>
             </li>

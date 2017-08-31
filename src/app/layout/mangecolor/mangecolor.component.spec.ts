@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageModelComponent } from './managemodel.component';
+import { MangeColorComponent } from './mangecolor.component';
 
-describe('ManageModelComponent', () => {
-  let component: ManageModelComponent;
-  let fixture: ComponentFixture<ManageModelComponent>;
+describe('MangeColorComponent', () => {
+  let component: MangeColorComponent;
+  let fixture: ComponentFixture<MangeColorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageModelComponent ]
+      declarations: [ MangeColorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageModelComponent);
+    fixture = TestBed.createComponent(MangeColorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
