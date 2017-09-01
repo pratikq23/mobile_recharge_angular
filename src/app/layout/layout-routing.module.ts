@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 
@@ -25,7 +25,11 @@ const routes: Routes = [
             { path: 'mangecolor', loadChildren: './mangecolor/mangecolor.module#MangeColorModule'},
             //mange color
             { path: 'create-bill', loadChildren: './create-bill/create-bill.module#CreateBillModule'},
-            
+            //manage bill
+            { path: 'managebill', loadChildren: './managebill/managebill.module#MangeBillModule'},
+            //manage bill
+             { path: 'changepassword', loadChildren: './change-password/change-password.module#ChangePasswordModule'}
+
         ]
     }
 ];

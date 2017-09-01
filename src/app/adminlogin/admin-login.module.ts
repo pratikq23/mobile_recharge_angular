@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { AdminLoginRoutingModule } from './admin-login-routing.module';
 import { AdminLoginComponent } from './admin-login.component';
@@ -17,6 +17,7 @@ import { RoleService } from './role.service';
     LoginService,
     RoleService
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AdminLoginModule {
 }

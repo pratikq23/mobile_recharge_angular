@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 import { CreateBillRoutingModule } from './create-bill-routing.module';
 import { CreateBillComponent } from './create-bill.component';
@@ -9,6 +10,7 @@ import { CreateBillComponent } from './create-bill.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     CreateBillRoutingModule
   ],
   declarations: [CreateBillComponent]
