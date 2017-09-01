@@ -10,6 +10,7 @@ const routes: Routes = [
     },
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
     { path: 'adminlogin', loadChildren: './adminlogin/admin-login.module#AdminLoginModule' },
+    { path: 'forgotpassword', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordModule' },
     { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
     { path: '**', redirectTo: 'not-found' }
 ];

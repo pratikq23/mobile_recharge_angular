@@ -1,12 +1,62 @@
 <div class="wrapper">
-  <form class="form-signin" (ngSubmit)="onSubmit()" >
   <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-    <h2 class="clean-font">Add Color</h2>
+  <form  class="form-mobilemodel" [formGroup]="mobilemodelviewForm" novalidate (ngSubmit)="onSubmit()">
+  <h2 class="clean-font">Add mobile model details</h2>
+  <div class="form-group">
+    <label class="select-label">Select Company:</label>
+    <select formControlName="companyname" name="company " placeholder="company" (ngModelChange)="valuechange($event)">
+      <option *ngFor="let company of companyList" value= {{company.name}} >
+        {{company.name}}
+      </option>
+    </select>         
+  </div> 
+  <div class="form-group">
+  <label class="select-label">Select Model:</label>
+    <select formControlName="model" name="model " placeholder="model" (ngModelChange)="modelValueChange($event)">
+      <option *ngFor="let model of modelList" value= {{model.name}} >
+        {{model.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+  <label class="select-label">Select Color:</label>
+    <select formControlName="color" name="color " placeholder="color" (ngModelChange)="colorValueChange($event)">
+      <option *ngFor="let color of colorList" value= {{color.name}} >
+        {{color.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+      <input class="form-control" placeholder="Serial No" formControlName="serial_no">
+  </div>
+  <br>
+  <div class="form-group">
+      <input class="form-control" placeholder="IMEI No 1" formControlName="imei_no_1">
+  </div>
+  <br>
+  <div class="form-group">
+      <input class="form-control" placeholder="IMEI No 2" formControlName="imei_no_2">
+  </div>
+  <br>
+  <div class="form-group">
+      <input class="form-control" placeholder="MRP" formControlName="mrp">
+  </div>
+  <br>
+  <div class="form-group">
+      <input class="form-control"  placeholder="Purchase Price" formControlName="purchase_price">
+  </div>
+  <br>
 
-    <input type="text" class="form-control" name="color" placeholder="color" [(ngModel)]="color" name="color" required autofocus=""/>
-    <br>
-    
-   
-    <button class="btn btn-primary btn-block" type="submit">Add</button>
-  </form>
+  <div class="form-group">
+    <input class="form-control" placeholder="Purchase Rate" formControlName="purchase_rate">
+  </div>
+  <br>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Tax Rate" formControlName="tax_perc">
+  </div> 
+  <br>
+
+ <button class="btn btn-primary btn-block" type="save_btn">Add</button>
+</form>
 </div>

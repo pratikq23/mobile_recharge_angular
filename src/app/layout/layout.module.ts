@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,6 +21,7 @@ import { HeaderComponent, SidebarComponent } from '../shared';
         LayoutComponent,
         HeaderComponent,
         SidebarComponent,
-    ]
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class LayoutModule { }

@@ -4,7 +4,7 @@ import { DataTableResource } from 'angular-4-data-table';
 
 
 @Component({
-    selector: 'managecolor-page',
+    selector: 'managebill-page',
     templateUrl: './managebill.component.html',
     styleUrls: ['./managebill.component.scss']
 })

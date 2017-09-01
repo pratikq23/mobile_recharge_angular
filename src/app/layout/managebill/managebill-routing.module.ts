@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { MangeColorComponent } from './mangecolor.component';
+import { ManageBillComponent } from './managebill.component';
 
 const routes: Routes = [
-    { path: '', component: MangeColorComponent }
+    { path: '', component: ManageBillComponent }
 ];
 
 @NgModule({
     imports: [FormsModule,RouterModule.forChild(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class MangeColorRoutingModule { }
+export class MangeBillRoutingModule { }
