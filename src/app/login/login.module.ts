@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { LoginService } from './login.service';
-import { RoleService } from './role.service';
+import { LoginService } from '../services/login.service';
+
 
 @NgModule({
     imports: [
@@ -12,10 +12,8 @@ import { RoleService } from './role.service';
         LoginRoutingModule
     ],
     declarations: [LoginComponent],
-     providers: [
-    LoginService,
-    RoleService
-  ],
+	providers: [LoginService],
 })
 export class LoginModule {
+	
 }

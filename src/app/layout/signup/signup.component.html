@@ -22,51 +22,35 @@
             </div>
             <div class="form-group">
                 
-                <input class="form-control" placeholder="Mobile No" formControlName="mobile_no">
+                <input class="form-control" placeholder="Mobile No" formControlName="mobile">
                 
             </div>
             <div class="form-group">
                 
-                <input class="form-control"  placeholder="Phone No" formControlName="phone_no">
+                <input class="form-control" placeholder="Other Mobile No" formControlName="mobileTwo">
+                
+            </div>
+           
+            <div class="form-group">
+                
+                <input class="form-control" placeholder="Email Id" formControlName="email">
                 
             </div>
             <div class="form-group">
                 
-                <input class="form-control" placeholder="Email Id" formControlName="email_id">
+                <input class="form-control" placeholder="Current Address" formControlName="addressOne">
                 
             </div>
             <div class="form-group">
                 
-                <input class="form-control" placeholder="Address" formControlName="address">
+                <input class="form-control" placeholder="Permanent Address" formControlName="addressTwo">
                 
             </div>
-            <div class="form-group">
-                
-                <input class="form-control" placeholder="Tin No"  formControlName="tin_no">
-                
-            </div>
-
-            <div class="form-group">
-                
-                <input class="form-control" placeholder="Pan No"  formControlName="pan_no">
-               
-            </div>
-
-            <div class="form-group">
-                
-                <input class="form-control" placeholder="Adhar No"  formControlName="adhar_no">
-                
-            </div> 
             <div class="form-group">
                 <label class="select-label">Select Role:</label>
-                <select class="form-control" formControlName="user_role_id">
+                <select class="form-control" formControlName="userRole">
                     <option *ngFor="let role of roleList" [value]="role.role_id">{{role.role_name}}</option>
                 </select>
-                
-            </div> 
-            <div class="form-group">
-               
-                <input class="form-control" placeholder="Gst Number"  formControlName="gst_number">
                 
             </div> 
             

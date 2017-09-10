@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router }  from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 
 @Component({
@@ -11,14 +12,12 @@ import { Router }  from '@angular/router';
     animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {public registerForm: FormGroup;
-  public roleList:any;
+  public roleList:any = {role_name  :'select',role_id:'0'}
   public succesmsg:any = true;
   public logInObj:any;
 
   constructor(private fb: FormBuilder,
-    //public userService:UserService,
-    //private roleService:RoleService,
-    //private sharedService:SharedService,
+    public userService:UserService,
     public router:Router) {
     this.createForm();
     this.getRoleList();
@@ -33,41 +32,41 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
       firstname: ['', Validators.required ],
       lastname:['', Validators.required ],
       username:['', Validators.required ],
-      mobile_no:['',Validators.required],
-      phone_no:['',Validators.required],
-      email_id:['',Validators.required],
-      address:['',Validators.required],
-      tin_no:['',Validators.required],
-      pan_no:['',Validators.required],
-      adhar_no:['',Validators.required],
-      image_url:['',Validators.required],
-      user_role_id:['',Validators.required],
-      gst_number:['',Validators.required]
+      mobile:['',Validators.required],
+      mobileTwo:['',Validators.required],
+      email:['',Validators.required],
+      addressOne:['',Validators.required],
+      addressTwo:['',Validators.required],
+      userRole:['',Validators.required]      
     });
+
   }
 
   onSubmit() {
-    // if(!!this.registerForm){
-    //   var userObj = this.registerForm.value;
-    //   userObj.password = '123456';
-    //   userObj.created_by = this.logInObj.user_id;
-    //   userObj.updated_by = this.logInObj.user_id;
-    //   this.userService.addUser(userObj).subscribe(
-    //     res => {
-    //       {
-    //         if(res.response.statusResponse == 1) {
-    //           this.succesmsg = false;
-    //           this.router.navigate(['/adminview'])
-    //         }
-    //       }
-    //     }
-    //   );
-    // }
+    if(!!this.registerForm){
+      var userObj = this.registerForm.value;
+      userObj.password = 'admin';
+      userObj.via = 1;
+      userObj.activeStatus = 1;
+      this.userService.registerUser(userObj).subscribe(
+        res => {
+          {
+            console.log(res);
+            if(res.response.statusResponse == 1) {
+              this.succesmsg = false;
+              this.router.navigate(['/adminview'])
+            }
+          }
+        }
+      );
+    }
   }
 
   getRoleList() {
-    // this.roleService.getRoles().subscribe(res=>{
-    //   this.roleList =   res.data.rolelist; 
-    // },err=> console.log(err))
+    this.roleList = [ {role_name:'Admin',role_id:'1'},
+                      {role_name:'Hod',role_id:'2'},
+                      {role_name:'Manager',role_id:'3'},
+                      {role_name:'Operator',role_id:'4'}
+                    ]
   }
 }
