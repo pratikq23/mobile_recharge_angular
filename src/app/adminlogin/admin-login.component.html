@@ -13,7 +13,7 @@
                         <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
                     </div>
                 </div>
-                 <!--<div class="form-group radio" *ngFor= "let role of roleList">  
+                 <div class="form-group radio" *ngFor= "let role of roleList">  
                     <input #widget
                         class='with-gap'
                         name='statusGroup'
@@ -22,7 +22,7 @@
                         [value]='role.role_id'
                         [(ngModel)]='role_id'
                     />{{role.role_name}}
-                </div>-->
+                </div>
                 <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
                 <br>
                 <a class="btn" [routerLink]="['/forgotpassword']" (click)="onLoggedin()"> Forgot password </a>
