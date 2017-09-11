@@ -16,9 +16,9 @@ export class AdminLoginComponent implements OnInit {
    public username: string;
     public password: string;
     public role_id:any;
-    public ErrorPassword:any = true;
-    public ErrorUserName:any = true;
-    public roleList:any;
+    public errMsgval:any = true;
+    public errorMsg = '';
+    public roleList = []
 
     constructor(public router: Router,
         private loginService: LoginService,
@@ -31,8 +31,6 @@ export class AdminLoginComponent implements OnInit {
 
      //login user
     onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
-
         let userObj = {
             username: this.username,
             password: this.password,
@@ -40,17 +38,29 @@ export class AdminLoginComponent implements OnInit {
         }
         this.loginService.sendCredential(userObj).subscribe(
         res => {
-          
+            if(res.response.status == false){
+                this.errMsgval = false;
+                this.errorMsg = res.response.message;
+            }else {
+                localStorage.setItem('isLoggedin', 'true');
+            }
+            
         },
         err => console.log(err))
     };
 
     getRoleList() {
-        this.roleList = [ {role_name:'Admin',role_id:'1'},
-                      {role_name:'Hod',role_id:'2'},
-                      {role_name:'Manager',role_id:'3'},
-                      {role_name:'Operator',role_id:'4'}
-                    ]
+        this.roleList = 
+        [ {role_name:'Admin',role_id:'1'},
+          {role_name:'Hod',role_id:'2'},
+          {role_name:'Manager',role_id:'3'},
+          {role_name:'Operator',role_id:'4'}
+        ]
+    }
+
+    valuechange(event){
+        this.errMsgval = true;
+        this.errorMsg = '';
     }
 
 }
