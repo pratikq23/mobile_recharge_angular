@@ -7,58 +7,49 @@ import 'rxjs/add/operator/catch';
 import * as env from './env.json';
 
 @Injectable()
-export class UserService {
+export class CompanyService {
 
   constructor (private http:Http){
   	
   }
   public serverUrl:any = env;
   
-  //register user
-  registerUser(userObj:any) {
+  //register company 
+  registerCompany(companyObj:any) {
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.post(this.serverUrl.devurl+"/api/User/RegisterUser", userObj,options)
+    return this.http.post(this.serverUrl.devurl+"/api/Company/addCompany", companyObj,options)
     .map(this.extractData)
     .catch(this.handleError);
   }
 
-  //change password
-  changePassword(passwordObj:any) {
+  //get company company list 
+  getCompanyList(filterObj:any) {
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.post(this.serverUrl.devurl+"/api/User/chnagePassword", passwordObj,options)
+    return this.http.post(this.serverUrl.devurl+"/api/Company/getCompanyList", filterObj,options)
     .map(this.extractData)
     .catch(this.handleError);
   }
 
-  //get userlist
-  getUserList(filterObj:any) {
+  //update company
+  updateCompany(companyObj:any) {
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.post(this.serverUrl.devurl+"/api/User/getUserList",filterObj,options)
+    return this.http.post(this.serverUrl.devurl+"/api/Company/updateCompany", companyObj,options)
     .map(this.extractData)
     .catch(this.handleError);
   }
 
-  //update user status api/User/getUserDetail?userId=1
-  updateUserStatus(userObj:any) {
+
+  //update company status
+  updateCompanyStatus(companyObj:any) {
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.post(this.serverUrl.devurl+"/api/User/updateUserStatus", userObj,options)
+    return this.http.post(this.serverUrl.devurl+"/api/Company/updateCompanyStatus", companyObj,options)
     .map(this.extractData)
     .catch(this.handleError);
   }
-
-  //get particular user 
-  getUserById(userId:any) {
-    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    let options = new RequestOptions({ headers: headers }); // Create a request option
-    return this.http.get(this.serverUrl.devurl+"api/User/getUserDetail?userId="+userId,options)
-    .map(this.extractData)
-    .catch(this.handleError);
-  }
-
 
   //extract data
   private extractData(res: Response) {
