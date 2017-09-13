@@ -16,6 +16,7 @@ export class LoginService {
   
 
   sendCredential(loginObj:any) {
+    console.log("Value is",loginObj);
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
     return this.http.post(this.serverUrl.devurl+"/api/User/login", loginObj,options)
