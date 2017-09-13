@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
     public ErrorPassword:any = true;
     public ErrorUserName:any = true;
     public roleList:any;
+    public errMsgval:any = true;
+    public errorMsg = '';
 
     constructor(public router: Router,
         private loginService: LoginService ) {
@@ -27,19 +29,28 @@ export class LoginComponent implements OnInit {
 
     //login user
     onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
-
-        let userObj = {
+       let userObj = {
             username: this.username,
             password: this.password,
-            userRole: this.role_id
+            userRole: 1
         }
         this.loginService.sendCredential(userObj).subscribe(
         res => {
-          
+            if(res.response.status == false){
+                this.errMsgval = false;
+                this.errorMsg = res.response.message;
+            }else {
+                localStorage.setItem('isLoggedin', 'true');
+            }
+            
         },
         err => console.log(err))
-    };
+};
 
+valuechange(env) {
+    this.errMsgval = true;
+    this.errorMsg = '';
+}
+    
 
 }
