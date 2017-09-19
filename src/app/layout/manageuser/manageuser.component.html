@@ -10,44 +10,60 @@
         [rowTooltip]="rowTooltip"
         >
         <data-table-column
-            [property]="'name'"
-            [header]="'Name'"
+            [property]="'username'"
+            [header]="'Username'"
             [sortable]="true"
             [resizable]="true">
         </data-table-column>
+
         <data-table-column
-            [property]="'date'"
-            [header]="'Date'"
-            [sortable]="true">
-            <ng-template #dataTableCell let-item="item">
-                <span>{{item.date | date:'yyyy-MM-dd'}}</span>
-            </ng-template>
-        </data-table-column>
-        <data-table-column
-            property="phoneNumber"
-            header="Phone number"
-            width="150px">
-        </data-table-column>
-        <data-table-column
-            [property]="'jobTitle'"
-            [header]="'Job title'"
-            [visible]="false">
-        </data-table-column>
-       
-        <data-table-column
-            [property]="'active'"
-            [header]="'Active'"
-            [width]="100"
+            [property]="'firstName'"
+            [header]="'FirstName'"
+            [sortable]="true"
             [resizable]="true">
-            <ng-template #dataTableHeader let-item="item">
-                <span style="color: rgb(232, 0, 0)">Active</span>
-            </ng-template>
-            <ng-template #dataTableCell let-item="item">
-                <span style="color: grey">
-                <span class="fa fa-check" *ngIf="item.active"></span>
-                <span  class="fa fa-times" *ngIf="!item.active"></span>
-                </span>
-            </ng-template>
-        </data-table-column> 
+        </data-table-column>
+
+        <data-table-column
+            [property]="'lastName'"
+            [header]="'LastName'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+        <data-table-column
+            [property]="'email'"
+            [header]="'Email'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+        <data-table-column
+            [property]="'mobile'"
+            [header]="'Mobile'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+        <data-table-column
+            [property]="'mobileTwo'"
+            [header]="'mobile Other'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+        <data-table-column
+            [property]="'addressOne'"
+            [header]="'Address 1'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+        <data-table-column
+            [property]="'addressTwo'"
+            [header]="'Address 2'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
     </data-table>
 </div>
