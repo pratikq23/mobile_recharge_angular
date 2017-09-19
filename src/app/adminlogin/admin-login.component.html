@@ -24,7 +24,7 @@
                         [(ngModel)]='role_id'
                     />{{role.role_name}}
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
+                <a class="btn rounded-btn" (click)="onLoggedin()"> Log in </a>
                 <br>
                 <a class="btn" [routerLink]="['/forgotpassword']" (click)="onLoggedin()"> Forgot password </a>
                 &nbsp;

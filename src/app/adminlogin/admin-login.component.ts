@@ -4,6 +4,7 @@ import { routerTransition } from '../router.animations';
 
 import {LoginService} from '../services/login.service';
 import { RoleService } from '../services/role.service';
+import { SharedService } from '../shared/services/shared.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AdminLoginComponent implements OnInit {
     public roleList = []
 
     constructor(public router: Router,
+        private sharedService:SharedService,
         private loginService: LoginService,
         private roleService:RoleService) {
         this.getRoleList();
@@ -31,6 +33,7 @@ export class AdminLoginComponent implements OnInit {
 
      //login user
     onLoggedin() {
+        let link = ['/dashboard'];
         let userObj = {
             username: this.username,
             password: this.password,
@@ -42,9 +45,11 @@ export class AdminLoginComponent implements OnInit {
                 this.errMsgval = false;
                 this.errorMsg = res.response.message;
             }else {
+                this.sharedService.setLoginObj(res.data[0]);
                 localStorage.setItem('isLoggedin', 'true');
+                localStorage.setItem('userObj', res.data[0]);
+                this.router.navigate(link);
             }
-            
         },
         err => console.log(err))
     };

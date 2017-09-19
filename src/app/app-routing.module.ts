@@ -8,6 +8,7 @@ const routes: Routes = [
         loadChildren: './layout/layout.module#LayoutModule',
         canActivate: [AuthGuard]
     },
+    { path: '', loadChildren: './login/login.module#LoginModule' },
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
     { path: 'adminlogin', loadChildren: './adminlogin/admin-login.module#AdminLoginModule' },
     { path: 'forgotpassword', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordModule' },

@@ -9,12 +9,14 @@ import 'rxjs/add/operator/catch';
 export class SharedService {
     public serverUrl:any = "http://localhost:4300"
     public loginInUser:any;
+    public loginObj:any;
 
     constructor (private http: Http) {
 
     }
 
     public setLoginObj(loginObj) {
+      console.log(loginObj);
       this.loginInUser = loginObj;
     }
 
