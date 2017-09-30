@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
     selector: 'app-header',
@@ -8,8 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    public userObj:any;    
 
-    constructor(private translate: TranslateService, public router: Router) {
+    constructor(private translate: TranslateService, 
+        public router: Router,
+        private sharedService:SharedService) {
         this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992) {
                 this.toggleSidebar();
@@ -17,7 +21,19 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        var loginVal = localStorage.getItem('isLoggedin');
+        if(loginVal == 'true') {
+            this.userObj = localStorage.getItem('userObj');
+        }
+        else{
+            this.router.navigate(['/login']);
+        }
+    
+//        this.userObj = this.sharedService.getLoginObj();
+  //      console.log("userObj",this.userObj);
+        
+    }
 
     toggleSidebar() {
         const dom: any = document.querySelector('body');
@@ -36,4 +52,9 @@ export class HeaderComponent implements OnInit {
     changeLang(language: string) {
         this.translate.use(language);
     }
+
+    getUsername() {
+
+    }
+
 }

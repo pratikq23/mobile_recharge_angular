@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 
 import {LoginService} from '../services/login.service';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
     selector: 'app-login',
@@ -11,6 +12,7 @@ import {LoginService} from '../services/login.service';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
+
     public username: string;
     public password: string;
     public role_id:any;
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
     public errorMsg = '';
 
     constructor(public router: Router,
+        private sharedService:SharedService,
         private loginService: LoginService ) {
     }
 
@@ -29,10 +32,11 @@ export class LoginComponent implements OnInit {
 
     //login user
     onLoggedin() {
-       let userObj = {
+        let link = ['/dashboard'];
+        let userObj = {
             username: this.username,
             password: this.password,
-            userRole: 1
+            userRole: 5
         }
         this.loginService.sendCredential(userObj).subscribe(
         res => {
@@ -40,17 +44,19 @@ export class LoginComponent implements OnInit {
                 this.errMsgval = false;
                 this.errorMsg = res.response.message;
             }else {
+                this.sharedService.setLoginObj(res.data[0]);
                 localStorage.setItem('isLoggedin', 'true');
-            }
-            
+                localStorage.setItem('userObj', res.data[0]);
+                this.router.navigate(link);
+            }        
         },
         err => console.log(err))
-};
+    };
 
-valuechange(env) {
-    this.errMsgval = true;
-    this.errorMsg = '';
-}
+    valuechange(env) {
+        this.errMsgval = true;
+        this.errorMsg = '';
+    }
     
 
 }

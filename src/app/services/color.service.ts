@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import * as env from './env.json';
 
 @Injectable()
-export class CompanyService {
+export class ColorService {
 
   constructor (private http:Http){
   	
@@ -25,13 +25,23 @@ export class CompanyService {
 
   //get company company list 
   getCompanyList(filterObj:any) {
-    console.log(filterObj);
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
     return this.http.post(this.serverUrl.devurl+"/api/Company/getCompanyList", filterObj,options)
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+   //get color list 
+  getColorList(filterObj:any) {
+    console.info(filterObj);
+    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    let options = new RequestOptions({ headers: headers }); // Create a request option
+    return this.http.post(this.serverUrl.devurl+"/api/Color/getColorList", filterObj,options)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
 
   //update company
   updateCompany(companyObj:any) {

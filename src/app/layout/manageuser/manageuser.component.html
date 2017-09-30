@@ -1,53 +1,26 @@
-<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
-    <data-table id="persons-grid"
-        headerTitle="Users"
-        [items]="items"
-        [itemCount]="itemCount"
-        (reload)="reloadItems($event)"
+<h1>{{welcome}}</h1>
+                <table class="table">
+                    <tr>
+                        <th>Username</th>
+                        <th>FirstName</th> 
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Mobile</th> 
+                        <th>Address1</th>
+                        <th>Role</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr *ngFor="let person of persons; let i = index">
+                        <td>{{person.username}}</td>
+                        <td>{{person.firstName}}</td>
+                        <td>{{person.lastName}}</td>
+                        <td>{{person.email}}</td>
+                        <td>{{person.mobile}}</td>
+                        <td>{{person.addressOne}}</td>
+                        <td>{{person.userRole}}</td>
+                        <td><i class='fa fa-pencil-square-o' aria-hidden='true'></i></td>
+                        <td><i class='fa fa-trash-o' aria-hidden='true'></i></td>
 
-        (rowClick)="rowClick($event)"
-        (rowDoubleClick)="rowDoubleClick($event)"
-        [rowTooltip]="rowTooltip"
-        >
-        <data-table-column
-            [property]="'name'"
-            [header]="'Name'"
-            [sortable]="true"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'date'"
-            [header]="'Date'"
-            [sortable]="true">
-            <ng-template #dataTableCell let-item="item">
-                <span>{{item.date | date:'yyyy-MM-dd'}}</span>
-            </ng-template>
-        </data-table-column>
-        <data-table-column
-            property="phoneNumber"
-            header="Phone number"
-            width="150px">
-        </data-table-column>
-        <data-table-column
-            [property]="'jobTitle'"
-            [header]="'Job title'"
-            [visible]="false">
-        </data-table-column>
-       
-        <data-table-column
-            [property]="'active'"
-            [header]="'Active'"
-            [width]="100"
-            [resizable]="true">
-            <ng-template #dataTableHeader let-item="item">
-                <span style="color: rgb(232, 0, 0)">Active</span>
-            </ng-template>
-            <ng-template #dataTableCell let-item="item">
-                <span style="color: grey">
-                <span class="fa fa-check" *ngIf="item.active"></span>
-                <span  class="fa fa-times" *ngIf="!item.active"></span>
-                </span>
-            </ng-template>
-        </data-table-column> 
-    </data-table>
-</div>
+                    </tr>
+                </table>

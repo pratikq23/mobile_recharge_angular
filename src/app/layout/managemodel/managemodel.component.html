@@ -1,53 +1,21 @@
-<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
-    <data-table id="persons-grid"
-        headerTitle="Models"
-        [items]="items"
-        [itemCount]="itemCount"
-        (reload)="reloadItems($event)"
 
-        (rowClick)="rowClick($event)"
-        (rowDoubleClick)="rowDoubleClick($event)"
-        [rowTooltip]="rowTooltip"
-        >
-        <data-table-column
-            [property]="'name'"
-            [header]="'Name'"
-            [sortable]="true"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'date'"
-            [header]="'Date'"
-            [sortable]="true">
-            <ng-template #dataTableCell let-item="item">
-                <span>{{item.date | date:'yyyy-MM-dd'}}</span>
-            </ng-template>
-        </data-table-column>
-        <data-table-column
-            property="phoneNumber"
-            header="Phone number"
-            width="150px">
-        </data-table-column>
-        <data-table-column
-            [property]="'jobTitle'"
-            [header]="'Job title'"
-            [visible]="false">
-        </data-table-column>
-       
-        <data-table-column
-            [property]="'active'"
-            [header]="'Active'"
-            [width]="100"
-            [resizable]="true">
-            <ng-template #dataTableHeader let-item="item">
-                <span style="color: rgb(232, 0, 0)">Active</span>
-            </ng-template>
-            <ng-template #dataTableCell let-item="item">
-                <span style="color: grey">
-                <span class="fa fa-check" *ngIf="item.active"></span>
-                <span  class="fa fa-times" *ngIf="!item.active"></span>
-                </span>
-            </ng-template>
-        </data-table-column> 
-    </data-table>
-</div>
+<h1>{{welcome}}</h1>
+                <table class="table">
+                    <tr>
+                        <th>Model Number</th>
+                        <th>Mobile Company Name</th> 
+                        <th>Model Ram</th>
+                        <th>Model ROM</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr *ngFor="let model of modalNamesList; let i = index">
+                        <td>{{model.Model}}</td>
+                        <td>{{model.Company}}</td>
+                        <td>{{model.Ram}}</td>
+                        <td>{{model.ROM}}</td>
+                        <td><i class='fa fa-pencil-square-o' aria-hidden='true'></i></td>
+                        <td><i class='fa fa-trash-o' aria-hidden='true'></i></td>
+
+                    </tr>
+                </table>

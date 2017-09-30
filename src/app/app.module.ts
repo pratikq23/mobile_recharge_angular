@@ -5,12 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { SharedService } from './shared/services/shared.service';
 import { AlertService } from './shared/components/Alert/alert.service';
 import { AlertComponent} from './shared/components/Alert/alert.component';
+
 
 
 // AoT requires an exported function for factories
@@ -31,6 +34,7 @@ export function HttpLoaderFactory(http: Http) {
         ReactiveFormsModule,
         HttpModule,
         AppRoutingModule,
+        Ng2TableModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

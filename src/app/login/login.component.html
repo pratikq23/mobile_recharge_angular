@@ -14,7 +14,7 @@
                         <input type="password" [(ngModel)]="password" class="form-control input-underline input-lg" id="" placeholder="Password" required autofocus="" (ngModelChange)="valuechange($event)" [ngModelOptions]="{standalone: true}" />
                     </div>             
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
+                <a class="btn rounded-btn" (click)="onLoggedin()"> Log in </a>
             </form>
             <a class="btn" [routerLink]="['/forgotpassword']" (click)="onLoggedin()"> Forgot password </a>
                 &nbsp;
