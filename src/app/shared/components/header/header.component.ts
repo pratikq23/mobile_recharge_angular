@@ -22,8 +22,16 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.userObj = this.sharedService.getLoginObj();
-        console.log("userObj",this.userObj);
+        var loginVal = localStorage.getItem('isLoggedin');
+        if(loginVal == 'true') {
+            this.userObj = localStorage.getItem('userObj');
+        }
+        else{
+            this.router.navigate(['/login']);
+        }
+    
+//        this.userObj = this.sharedService.getLoginObj();
+  //      console.log("userObj",this.userObj);
         
     }
 

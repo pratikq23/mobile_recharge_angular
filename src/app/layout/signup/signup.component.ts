@@ -51,10 +51,11 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
       this.userService.registerUser(userObj).subscribe(
         res => {
           {
-            console.log(res);
-            if(res.response.statusResponse == 1) {
-              this.succesmsg = false;
-              this.router.navigate(['/adminview'])
+            if(res.response.status == true) {
+              this.router.navigate(['/dashboard'])
+            }
+            else {
+              //error
             }
           }
         }
@@ -62,11 +63,13 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
     }
   }
 
+  //get role list
   getRoleList() {
-    this.roleList = [ {role_name:'Admin',role_id:'1'},
-                      {role_name:'Hod',role_id:'2'},
-                      {role_name:'Manager',role_id:'3'},
-                      {role_name:'Operator',role_id:'4'}
-                    ]
+    this.roleList = [
+      {role_name:'Admin',role_id:'1'},
+      {role_name:'Hod',role_id:'2'},
+      {role_name:'Manager',role_id:'3'},
+      {role_name:'Operator',role_id:'4'}
+    ]
   }
 }

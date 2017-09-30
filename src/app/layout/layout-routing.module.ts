@@ -6,6 +6,7 @@ const routes: Routes = [
     {
         path: '', component: LayoutComponent,
         children: [
+        
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             //user resgister
             { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
@@ -28,7 +29,7 @@ const routes: Routes = [
             //manage bill
             { path: 'managebill', loadChildren: './managebill/managebill.module#MangeBillModule'},
             //manage bill
-             { path: 'changepassword', loadChildren: './change-password/change-password.module#ChangePasswordModule'}
+            { path: 'changepassword', loadChildren: './change-password/change-password.module#ChangePasswordModule'}
 
         ]
     }

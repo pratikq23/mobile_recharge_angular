@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
     templateUrl: './manageuser.component.html',
     styleUrls: ['./manageuser.component.scss']
 })
-export class ManageUserComponent  {
+export class ManageUserComponent implements OnInit {
     public persons = [];
     public itemResource = new DataTableResource(this.persons);
     public itemCount = 0;
@@ -19,9 +19,16 @@ export class ManageUserComponent  {
     public userRole:any = 1;
     public userListSize:any = 10;
 
+
+
     constructor(public userService:UserService) {
-        this.getUserList();
+        
         this.itemResource.count().then(count => this.itemCount = count);
+    }
+
+     ngOnInit() {
+      
+        this.getUserList();
     }
 
     reloadItems(params) {

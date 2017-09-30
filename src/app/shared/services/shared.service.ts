@@ -16,7 +16,6 @@ export class SharedService {
     }
 
     public setLoginObj(loginObj) {
-      console.log(loginObj);
       this.loginInUser = loginObj;
     }
 
