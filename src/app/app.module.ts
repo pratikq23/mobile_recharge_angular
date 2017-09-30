@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { SharedService } from './shared/services/shared.service';
+import { AlertService } from './shared/components/Alert/alert.service';
+import { AlertComponent} from './shared/components/Alert/alert.component';
 
 
 // AoT requires an exported function for factories
@@ -19,7 +21,8 @@ export function HttpLoaderFactory(http: Http) {
 }
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AlertComponent
     ],
     imports: [
         BrowserModule,
@@ -36,7 +39,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [AuthGuard,SharedService],
+    providers: [AuthGuard,SharedService,AlertService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

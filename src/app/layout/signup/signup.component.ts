@@ -3,6 +3,7 @@ import { routerTransition } from '../../router.animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router }  from '@angular/router';
 import {UserService} from '../../services/user.service';
+import { AlertService } from '../../shared/components/Alert/alert.service';
 
 
 @Component({
@@ -15,10 +16,13 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
   public roleList:any = {role_name  :'select',role_id:'0'}
   public succesmsg:any = true;
   public logInObj:any;
+  loading = false;
+   model: any = {};
 
   constructor(private fb: FormBuilder,
     public userService:UserService,
-    public router:Router) {
+    public router:Router,
+    private alertService: AlertService) {
     this.createForm();
     this.getRoleList();
     //this.logInObj = this.sharedService.getLoginObj();  
@@ -45,7 +49,7 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
   onSubmit() {
     if(!!this.registerForm){
       var userObj = this.registerForm.value;
-      userObj.password = 'admin';
+      userObj.password = 'admin';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
       userObj.via = 1;
       userObj.activeStatus = 1;
       this.userService.registerUser(userObj).subscribe(
@@ -54,10 +58,12 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
             console.log(res);
             if(res.response.statusResponse == 1) {
               this.succesmsg = false;
+              this.alertService.success('Registration successful', true);
+              //this.router.navigate(['/login']);
               this.router.navigate(['/adminview'])
             }
-          }
-        }
+          }   
+        } 
       );
     }
   }
@@ -69,4 +75,7 @@ export class SignupComponent implements OnInit {public registerForm: FormGroup;
                       {role_name:'Operator',role_id:'4'}
                     ]
   }
+
+  
+  
 }
